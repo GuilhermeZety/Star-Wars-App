@@ -139,11 +139,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Director',
     },
     'portuguese': {
-      'pt': 'Portugues',
+      'pt': 'Português',
       'en': 'Portuguese',
     },
     'english': {
-      'pt': 'Ingles',
+      'pt': 'Inglês',
       'en': 'English',
     },
     'male': {
