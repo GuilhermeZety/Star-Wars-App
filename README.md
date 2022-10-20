@@ -8,6 +8,12 @@ A Ideia do Aplicativo é ter todas as informações dos personagens do Star Wars
 
 Desenvolvido totalmente em flutter como Offline - First;
 
+*  linguagens:
+* * Português
+* * inglês
+
+-API = https://swapi.dev/api/;
+
 Ou seja, após o primeiro acesso, não é necessario a presença de internet :);
 
 
