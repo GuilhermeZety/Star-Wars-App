@@ -1,10 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:star_wars/src/api/people/people_database.dart';
-import 'package:star_wars/src/models/people.dart';
-import 'package:star_wars/src/pages/configs/config_page.dart';
-import 'package:star_wars/src/utils/navigate.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import '../configs/config_page.dart';
+import 'home_viewmodel.dart';
+import '../../utils/navigate.dart';
 
 import '../../components/search_input.dart';
 import '../../utils/internationalization.dart';
@@ -18,59 +18,20 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  ScrollController scrollController = ScrollController();
-  TextEditingController searchController = TextEditingController(); 
-
-  List<People> listAllPersons = [];
-  List<People> listPersons = [];
-
-  Timer? searching;
-
+  var controller = HomeViewModel();
 
   @override
   void initState() {
+    Timer.run(() async => await controller.onload());
     super.initState();
-
-    Timer.run(() async => onload());
   }
-
-  onload() async {
-    listAllPersons = await PeopleDatabase().getAll();
-    listPersons = listAllPersons;
-
-    setState(() {});
-  }
-
-  onSearch(String name){
-    if(searching != null){
-      searching!.cancel();
-    }
-
-    Timer(const Duration(milliseconds: 50), () {
-      changePeoples(name);
-    });
-
-  }
-
-  changePeoples(String name) async {
-    if(name.isEmpty){
-      listPersons = listAllPersons;
-    }
-    else{
-      listPersons = listAllPersons.where((element) => element.name.toUpperCase().contains(name.toUpperCase())).toList();
-    }
-    setState(() {});
-  }
-
 
   @override
   void dispose() {
-    searchController.dispose();   
-    if(searching != null){
-      searching!.cancel();
-    }
+    controller.dispose(); 
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -102,24 +63,28 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(top: 25),
-                    child: SearchInput(
-                      controller: searchController,
-                      hint: LocaleTexts.of(context).getText('search'),
-                      onChange: onSearch,
-                      countData: '${listPersons.length} ${LocaleTexts.of(context).getText('results')}',
+                    child: Observer(
+                      builder: (a) => SearchInput(
+                        controller: controller.searchController,
+                        hint: LocaleTexts.of(context).getText('search'),
+                        onChange: controller.onSearch,
+                        countData: '${controller.listPersons.length} ${LocaleTexts.of(context).getText('results')}',
+                      ),
                     ),
                   ),
                   SizedBox(
                     height: MediaQuery.of(context).size.height - 273,
-                    child: ListView.builder(
-                      controller: scrollController,
-                      shrinkWrap: true,
-                      scrollDirection: Axis.vertical,
-                      itemCount: listPersons.length,
-                      itemBuilder: ((context, index) => PeopleSelectWidget(
-                          people: listPersons[index]
+                    child: Observer(
+                      builder: (a) => ListView.builder(
+                        controller: controller.scrollController,
+                        shrinkWrap: true,
+                        scrollDirection: Axis.vertical,
+                        itemCount: controller.listPersons.length,
+                        itemBuilder: ((context, index) => PeopleSelectWidget(
+                            people: controller.listPersons[index]
+                          )
                         )
-                      )
+                      ),
                     ),
                   )
                 ],

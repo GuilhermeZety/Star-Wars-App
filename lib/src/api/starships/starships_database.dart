@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:sqflite/sqflite.dart';
-import 'package:star_wars/src/models/starships.dart';
+import '../../models/starships.dart';
 
 import '../../db/database.dart';
 

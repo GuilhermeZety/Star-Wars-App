@@ -4,9 +4,9 @@
 
 
 import 'package:flutter/foundation.dart';
-import 'package:star_wars/src/api/starships/starships_database.dart';
-import 'package:star_wars/src/api/starships/starships_requests.dart';
-import 'package:star_wars/src/models/starships.dart';
+import 'starships_database.dart';
+import 'starships_requests.dart';
+import '../../models/starships.dart';
 
 import '../../utils/network_info.dart';
 

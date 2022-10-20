@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:star_wars/src/models/people.dart';
 
+import '../../../models/people.dart';
 import '../../../utils/navigate.dart';
 import '../../../utils/util.dart';
 import '../../people/people_page.dart';

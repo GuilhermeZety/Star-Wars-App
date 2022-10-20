@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:star_wars/src/models/films.dart';
-import 'package:star_wars/src/models/people.dart';
-import 'package:star_wars/src/pages/people/people_page.dart';
-import 'package:star_wars/src/utils/navigate.dart';
+import '../../models/films.dart';
+import '../../models/people.dart';
+import '../people/people_page.dart';
+import '../../utils/navigate.dart';
 
 import '../../components/divider.dart';
 import '../../components/top_menu_bar.dart';

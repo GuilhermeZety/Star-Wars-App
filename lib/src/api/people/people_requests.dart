@@ -1,8 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+
+import '../../models/people.dart';
 import '../base_requests.dart';
 import 'people_database.dart';
-import '../../models/people.dart';
 class PeopleRequests extends BaseRequests {
   
   ///Function to get all peoples

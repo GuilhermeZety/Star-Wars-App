@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:star_wars/src/models/films.dart';
-import 'package:star_wars/src/models/people.dart';
-import 'package:star_wars/src/pages/films/film_page.dart';
+import '../../../models/films.dart';
+import '../../../models/people.dart';
+import '../../films/film_page.dart';
 
 import '../../../utils/navigate.dart';
 

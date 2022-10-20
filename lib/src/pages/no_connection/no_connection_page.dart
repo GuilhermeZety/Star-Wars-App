@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:star_wars/src/pages/splash/splash_page.dart';
+import '../splash/splash_page.dart';
 
 import '../../utils/internationalization.dart';
 import '../../utils/navigate.dart';

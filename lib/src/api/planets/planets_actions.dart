@@ -5,7 +5,7 @@
 
 
 import 'package:flutter/foundation.dart';
-import 'package:star_wars/src/models/planets.dart';
+import '../../models/planets.dart';
 
 import 'planets_requests.dart';
 

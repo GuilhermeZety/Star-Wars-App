@@ -49,10 +49,16 @@ dependencies:
   shared_preferences: ^2.0.15
   localization: ^2.1.0
   flutter_launcher_icons: ^0.10.0
+  flutter_mobx:
+  provider:
+  get_it:
+  mobx: ^2.1.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  mobx_codegen:
+  build_runner:
 
 flutter_icons:
 

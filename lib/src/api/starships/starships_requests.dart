@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:star_wars/src/api/starships/starships_database.dart';
+import 'starships_database.dart';
 import '../../models/starships.dart';
 import '../base_requests.dart';
 
