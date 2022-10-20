@@ -6,9 +6,9 @@ import '../../db/database.dart';
 
 class StarshipsDatabase {
 
-  ///
-  ///
-  ///
+  ///Function to insert list of Starships in DB
+  ///Pass [List<Starships>]
+  ///Return [bool] of success
   Future<bool> insert(List<Starships> starships) async {
     bool success = false;
 
@@ -32,9 +32,9 @@ class StarshipsDatabase {
     return success;
   }
 
-  ///
-  ///
-  ///
+  ///Function to get all Starships from DB
+  ///Pass URLs [Nothing]
+  ///Return [List<Starships>]
   Future<List<Starships>> getAll() async {
     try {
       var database = await DatabaseHandler.instance.initiateDB();
@@ -51,9 +51,9 @@ class StarshipsDatabase {
     return [];
   }
   
-  ///
-  ///
-  ///
+  ///Function to get Starships from DB with this URLs
+  ///Pass URLs [String]
+  ///Return [Starships?]
   Future<Starships?> getAllFromUrl(String url) async {
     try {
       var database = await DatabaseHandler.instance.initiateDB();
@@ -73,6 +73,9 @@ class StarshipsDatabase {
   }
 
 
+  ///Function to get quantity of starships from DB
+  ///Pass [Nothing]
+  ///Return [int]
   count() async {
     try{
       var database = await DatabaseHandler.instance.initiateDB();

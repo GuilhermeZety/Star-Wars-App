@@ -6,9 +6,9 @@ import '../../models/films.dart';
 
 class FilmsDatabase {
 
-  ///
-  ///
-  ///
+  ///Function to insert list of films in DB
+  ///Pass [List<Films>]
+  ///Return [bool] of success
   Future<bool> insert(List<Films> films) async {
     bool success = false;
 
@@ -32,9 +32,9 @@ class FilmsDatabase {
     return success;
   }
 
-  ///
-  ///
-  ///
+  ///Function to get all Films from DB
+  ///Pass URLs [Nothing]
+  ///Return [List<Films>]
   Future<List<Films>> getAll() async {
     try {
       var database = await DatabaseHandler.instance.initiateDB();
@@ -51,9 +51,9 @@ class FilmsDatabase {
     return [];
   }
 
-  ///
-  ///
-  ///
+  ///Function to get all Films from DB with this URLs
+  ///Pass URLs [List<String>]
+  ///Return [List<Films>?]
   Future<List<Films>?> getAllFromUrl(List urls) async {
     try {
       var database = await DatabaseHandler.instance.initiateDB();
@@ -78,6 +78,9 @@ class FilmsDatabase {
   }
 
 
+  ///Function to get quantity of films from DB
+  ///Pass [Nothing]
+  ///Return [int]
   count() async {
     try{
       var database = await DatabaseHandler.instance.initiateDB();

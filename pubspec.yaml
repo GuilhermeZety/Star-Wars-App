@@ -48,11 +48,20 @@ dependencies:
   font_awesome_flutter: ^10.2.1
   shared_preferences: ^2.0.15
   localization: ^2.1.0
+  flutter_launcher_icons: ^0.10.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
+flutter_icons:
+
+  android: true
+  ios: true
+  image_path: "assets/logo.png"
+  image_path_ios: "assets/logo.png"
+  adaptive_icon_foreground: "assets/logo.png"
+  adaptive_icon_background: "#000000"
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your

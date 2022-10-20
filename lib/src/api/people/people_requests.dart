@@ -6,8 +6,8 @@ import '../../models/people.dart';
 class PeopleRequests extends BaseRequests {
   
   ///Function to get all peoples
-  ///pass [Nothing]
-  ///Retorno [List<People>?]
+  ///Pass [Nothing]
+  ///Return [List<People>?]
   Future<List<People>?> getAllPeoples() async {
     bool completed = false;
 
@@ -47,6 +47,9 @@ class PeopleRequests extends BaseRequests {
     }
   }
 
+  ///Function to get quantity of peoples
+  ///Pass [Nothing]
+  ///Return [int]
   Future<int> count() async {
     try{
       Response response = await dio.get('people');

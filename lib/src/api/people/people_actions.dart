@@ -9,6 +9,9 @@ import '../../utils/network_info.dart';
 
 class PeopleActions {
 
+  ///Function to update and verify peoples in app
+  ///Pass [Nothing]
+  ///Return [bool?] of success
   Future updateAllPeoples() async {
     try{
       if(await hasInternetConnection()){

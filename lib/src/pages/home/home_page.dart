@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
       searching!.cancel();
     }
 
-    Timer(const Duration(milliseconds: 100), () {
+    Timer(const Duration(milliseconds: 50), () {
       changePeoples(name);
     });
 

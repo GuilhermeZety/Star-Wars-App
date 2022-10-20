@@ -7,9 +7,9 @@ import '../base_requests.dart';
 
 class StarshipsRequests extends BaseRequests {
   
-  ///Function to get all peoples
-  ///pass [Nothing]
-  ///Retorno [List<Starships>?]
+  ///Function to get all Starships
+  ///Pass [Nothing]
+  ///Return [List<Starships>?]
   Future<List<Starships>?> getAllStarships() async {
     bool completed = false;
 
@@ -49,6 +49,9 @@ class StarshipsRequests extends BaseRequests {
     }
   }
 
+  ///Function to get quantity of starships
+  ///Pass [Nothing]
+  ///Return [int]
   Future<int> count() async {
     try{
       Response response = await dio.get('starships');

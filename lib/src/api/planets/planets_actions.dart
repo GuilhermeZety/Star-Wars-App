@@ -14,6 +14,9 @@ import 'planets_database.dart';
 
 class PlanetsActions {
 
+  ///Function to update and verify planets in app
+  ///Pass [Nothing]
+  ///Return [bool?] of success
   Future updateAllPlanets() async {
     try{
       if(await hasInternetConnection()){
@@ -35,6 +38,9 @@ class PlanetsActions {
     }
   }
 
+  ///Function to get planet from this URLs from DB
+  ///Pass [String]
+  ///Return [Planets?]
   Future<Planets?> getPlanetFromDB(String url) async {
     try{
       var resp = await PlanetsDatabase().getAllFromUrl(url);

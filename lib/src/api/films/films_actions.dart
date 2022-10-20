@@ -12,6 +12,9 @@ import '../../utils/network_info.dart';
 
 class FilmsActions {
 
+  ///Function to update and verify films in app
+  ///Pass [Nothing]
+  ///Return [bool?] of success
   Future updateAllFilms() async {
     try{
       if(await hasInternetConnection()){
@@ -33,6 +36,9 @@ class FilmsActions {
     }
   }
 
+  ///Function to get All films from this URLs
+  ///Pass [List<String>]
+  ///Return [List<Films>?]
   Future<List<Films>?> getAllFilmsFromURL(List films) async {    
     try{
       var resp = await FilmsDatabase().getAllFromUrl(films);

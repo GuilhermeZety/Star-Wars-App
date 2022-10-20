@@ -7,9 +7,9 @@ import 'films_database.dart';
 
 class FilmsRequests extends BaseRequests {
   
-  ///Function to get all peoples
-  ///pass [Nothing]
-  ///Retorno [List<Films>?]
+  ///Function to get all films
+  ///Pass [Nothing]
+  ///Return [List<Films>?]
   Future<List<Films>?> getAllFilms() async {
     bool completed = false;
 
@@ -49,6 +49,9 @@ class FilmsRequests extends BaseRequests {
     }
   }
 
+  ///Function to get quantity of films
+  ///Pass [Nothing]
+  ///Return [int]
   Future<int> count() async {
     try{
       Response response = await dio.get('films');

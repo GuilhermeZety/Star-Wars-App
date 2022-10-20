@@ -8,9 +8,9 @@ import '../../models/planets.dart';
 
 class PlanetsDatabase {
 
-  ///
-  ///
-  ///
+  ///Function to insert list of planets in DB
+  ///Pass [List<Planets>]
+  ///Return [bool] of success
   Future<bool> insert(List<Planets> planets) async {
     bool success = false;
 
@@ -34,9 +34,9 @@ class PlanetsDatabase {
     return success;
   }
 
-  ///
-  ///
-  ///
+  ///Function to get all Planets from DB
+  ///Pass URLs [Nothing]
+  ///Return [List<Planets>]
   Future<List<Planets>> getAll() async {
     try {
       var database = await DatabaseHandler.instance.initiateDB();
@@ -54,9 +54,9 @@ class PlanetsDatabase {
     return [];
   }
 
-  ///
-  ///
-  ///
+  ///Function to get Planets from DB with this URLs
+  ///Pass URLs [String]
+  ///Return [Planets?]
   Future<Planets?> getAllFromUrl(String url) async {
     try {
       var database = await DatabaseHandler.instance.initiateDB();
@@ -75,8 +75,9 @@ class PlanetsDatabase {
     return null;
   }
 
-  
-
+  ///Function to get quantity of planets from DB
+  ///Pass [Nothing]
+  ///Return [int]
   count() async {
     try{
       var database = await DatabaseHandler.instance.initiateDB();

@@ -16,11 +16,9 @@ class InfoWidget extends StatelessWidget {
         Text(title, style: TextStyle(fontSize: 12, color: Theme.of(context).textTheme.headline6!.color), textAlign: TextAlign.center,),
         SizedBox(
           width: width,
-          child: Flexible(
-            child: Padding(
-              padding: const EdgeInsets.only(left: 4),
-              child: Text(content, style: TextStyle(fontSize: 18, color: Theme.of(context).textTheme.headline1!.color), textAlign: TextAlign.start,),
-            ),
+          child: Padding(
+            padding: const EdgeInsets.only(left: 4),
+            child: Text(content, style: TextStyle(fontSize: 18, color: Theme.of(context).textTheme.headline1!.color), textAlign: TextAlign.start,),
           ),
         ),
       ],

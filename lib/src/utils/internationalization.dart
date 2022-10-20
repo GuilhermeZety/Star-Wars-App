@@ -158,5 +158,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'pt': 'Desconhecido',
       'en': 'Unknown',
     },
+    'message_no_connection': {
+      'pt': 'Ooooops... Há algo de errado, não consigo identificar sua conexão com a internet...\n Por favor, verifique sua conexão e tente novamente :)',
+      'en': "Ooooops... There's something wrong, I can't identify your internet connection...\n Please check your connection and try again. :)",
+    },
+    'try_again': {
+      'pt': 'Tentar Novamente',
+      'en': "Try Again",
+    },
   },
 ].reduce((a, b) => a..addAll(b));

@@ -2,6 +2,7 @@
 // ignore_for_file: invalid_use_of_protected_member
 
 import 'dart:async';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -12,7 +13,7 @@ import '../utils/cache.dart';
 import '../utils/internationalization.dart';
 
 ThemeMode? _themeMode = ThemeMode.dark;
-Locale? _locale = const Locale('pt');
+Locale? _locale;
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
@@ -49,8 +50,8 @@ class _AppWidgetState extends State<AppWidget> {
   
   @override
   void initState() {
-    super.initState();
     Timer.run(() async => await onLoad());
+    super.initState();
   }
 
   onLoad() async {
@@ -65,6 +66,13 @@ class _AppWidgetState extends State<AppWidget> {
     if(l != null){
       setState(() {
         _locale = l;
+      });
+    }
+    else{
+      var locale = Platform.localeName.substring(0, 2);
+      Cache().setLocale(Locale(locale));
+      setState(() {
+        _locale = Locale(locale);
       });
     }
   }

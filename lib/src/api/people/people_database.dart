@@ -6,9 +6,9 @@ import '../../models/people.dart';
 
 class PeopleDatabase {
 
-  ///
-  ///
-  ///
+  ///Function to insert list of peoples in DB
+  ///Pass [List<People>]
+  ///Return [bool] of success
   Future<bool> insert(List<People> peoples) async {
     bool success = false;
 
@@ -32,9 +32,9 @@ class PeopleDatabase {
     return success;
   }
 
-  ///
-  ///
-  ///
+  ///Function to get all Peoples from DB
+  ///Pass [Nothing]
+  ///Return [List<People>]
   Future<List<People>> getAll() async {
     try {
       var database = await DatabaseHandler.instance.initiateDB();
@@ -52,6 +52,9 @@ class PeopleDatabase {
     return [];
   }
 
+  ///Function to get quantity of peoples from DB
+  ///Pass [Nothing]
+  ///Return [int]
   count() async {
     try{
       var database = await DatabaseHandler.instance.initiateDB();

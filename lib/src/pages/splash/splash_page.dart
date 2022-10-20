@@ -4,10 +4,13 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:star_wars/src/api/people/people_actions.dart';
+import 'package:star_wars/src/api/people/people_database.dart';
 import 'package:star_wars/src/api/planets/planets_actions.dart';
 import 'package:star_wars/src/pages/home/home_page.dart';
+import 'package:star_wars/src/pages/no_connection/no_connection_page.dart';
 import 'package:star_wars/src/pages/splash/widgets/sky.dart';
 import 'package:star_wars/src/utils/navigate.dart';
+import 'package:star_wars/src/utils/network_info.dart';
 
 import '../../api/films/films_actions.dart';
 import '../../api/starships/starships_actions.dart';
@@ -28,7 +31,6 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
-
     timerChangeLogoColor = Timer.periodic(const Duration(seconds: 3), (timer) {
       boolChangeLogoColor = !boolChangeLogoColor;
       setState(() {});
@@ -38,14 +40,25 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   Future onLoad() async {
-    await Future.wait([
-      PeopleActions().updateAllPeoples(),
-      FilmsActions().updateAllFilms(),
-      PlanetsActions().updateAllPlanets(),
-      StarshipsActions().updateAllStarships(),
-    ]);
-    
-    to(context, const HomePage());
+    if(await hasInternetConnection()){
+      await Future.wait([
+        PeopleActions().updateAllPeoples(),
+        FilmsActions().updateAllFilms(),
+        PlanetsActions().updateAllPlanets(),
+        StarshipsActions().updateAllStarships(),
+      ]);
+      to(context, const HomePage());
+    }
+    else{ 
+      var count = await PeopleDatabase().count();
+
+      if(count == null || count < 1){
+        to(context, NoConnectionPage());
+      }
+      else{
+        to(context, const HomePage());
+      }
+    }
   }
 
   @override

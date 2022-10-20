@@ -12,6 +12,9 @@ import '../../utils/network_info.dart';
 
 class StarshipsActions {
 
+  ///Function to update and verify starships in app
+  ///Pass [Nothing]
+  ///Return [bool?] of success
   Future updateAllStarships() async {
     try{
       if(await hasInternetConnection()){
@@ -33,7 +36,9 @@ class StarshipsActions {
     }
   }
 
-  
+  ///Function to get Starships from this URLs from DB
+  ///Pass [String]
+  ///Return [Starships?]  
   Future<Starships?> getStarshipFromDB(String url) async {
     try{
       var resp = await StarshipsDatabase().getAllFromUrl(url);

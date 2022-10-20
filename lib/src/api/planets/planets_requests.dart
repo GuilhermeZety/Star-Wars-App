@@ -8,9 +8,9 @@ import 'planets_database.dart';
 
 class PlanetsRequests extends BaseRequests {
   
-  ///Function to get all peoples
-  ///pass [Nothing]
-  ///Retorno [List<Planets>?]
+  ///Function to get all planets
+  ///Pass [Nothing]
+  ///Return [List<Planets>?]
   Future<List<Planets>?> getAllFilms() async {
     bool completed = false;
 
@@ -50,6 +50,9 @@ class PlanetsRequests extends BaseRequests {
     }
   }
 
+  ///Function to get quantity of planets
+  ///Pass [Nothing]
+  ///Return [int]
   Future<int> count() async {
     try{
       Response response = await dio.get('planets');
