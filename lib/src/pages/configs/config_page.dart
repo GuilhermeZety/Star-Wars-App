@@ -3,7 +3,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:star_wars/src/app/app_widget.dart';
+import 'package:star_wars/src/app/app_configs.dart';
 import 'package:star_wars/src/components/top_menu_bar.dart';
 import 'package:star_wars/src/pages/home/home_page.dart';
 import 'package:star_wars/src/utils/cache.dart';
@@ -48,12 +48,12 @@ class _ConfigPageState extends State<ConfigPage> {
 
   changeTheme(context){
     if(Theme.of(context).scaffoldBackgroundColor == const Color(0xFF1C1C1C)){
-      AppWidget.setTheme(context, ThemeMode.light);
+      AppConfigs().setThemeMode(ThemeMode.light);
       theme = ThemeMode.light;
       setState(() {});
     }
     else{
-      AppWidget.setTheme(context, ThemeMode.dark);
+      AppConfigs().setThemeMode(ThemeMode.dark);
       theme = ThemeMode.dark;
       setState(() {});
     }
@@ -70,7 +70,7 @@ class _ConfigPageState extends State<ConfigPage> {
         children: [
           GestureDetector(
             onTap: () async {
-              AppWidget.setLocale(context, const Locale('pt'));
+              AppConfigs().setLocale(Locale('pt')); 
               var l = await Cache().getLocale();
 
               if(l != null){
@@ -93,7 +93,7 @@ class _ConfigPageState extends State<ConfigPage> {
             padding: const EdgeInsets.only(top: 10),
             child: GestureDetector(
               onTap: () async {
-                AppWidget.setLocale(context, const Locale('en'));
+              AppConfigs().setLocale(Locale('en')); 
                 var l = await Cache().getLocale();
 
                 if(l != null){
